@@ -134,12 +134,14 @@ const styles = StyleSheet.create({
   },
   heading2: {
     marginVertical: 16,
+    fontFamily: "productsansbold",
   },
   cards: {
     marginBottom: 32,
   },
   input: {
     fontSize: 16,
+    fontFamily: "productsansregular",
     borderColor: "#ececec",
     borderStyle: "solid",
     borderWidth: 1,

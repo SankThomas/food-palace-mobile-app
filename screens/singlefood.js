@@ -230,7 +230,7 @@ const styles = StyleSheet.create({
   },
   heading: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontFamily: "productsansbold",
     color: "#222",
   },
   cards: {
@@ -247,6 +247,7 @@ const styles = StyleSheet.create({
   heading2: {
     marginTop: 16,
     marginBottom: 8,
+    fontFamily: "productsansbold",
   },
   buttonContainer: {
     alignItems: "center",
@@ -255,7 +256,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#222222",
     color: "#ffffff",
     fontSize: 16,
-    fontWeight: "bold",
+    fontFamily: "productsansbold",
     paddingVertical: 16,
     width: "100%",
     borderRadius: 32,
