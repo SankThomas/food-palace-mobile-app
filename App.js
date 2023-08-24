@@ -4,10 +4,32 @@ import { NavigationContainer } from "@react-navigation/native";
 import Foods from "./screens/foods";
 import Food from "./screens/food";
 import Singlefood from "./screens/singlefood";
+import * as SplashScreen from "expo-splash-screen";
+import { useFonts } from "expo-font";
+import { useEffect } from "react";
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    productsansregular: require("./assets/fonts/product-sans-regular.ttf"),
+    productsansbold: require("./assets/fonts/product-sans-bold.ttf"),
+  });
+
+  useEffect(() => {
+    async function prepare() {
+      await SplashScreen.preventAutoHideAsync();
+    }
+
+    prepare();
+  }, []);
+
+  if (!fontsLoaded) {
+    return undefined;
+  } else {
+    SplashScreen.hideAsync();
+  }
+
   return (
     <NavigationContainer>
       <StatusBar style="light" backgroundColor="#222222" />
@@ -17,10 +39,12 @@ export default function App() {
           headerStyle: {
             backgroundColor: "#222222",
           },
+          headerTitleStyle: {
+            fontFamily: "productsansbold",
+          },
           headerTintColor: "#fff",
           headerTitleAlign: "center",
           gestureEnabled: true,
-          // gestureDirection: "vertical",
           animation: "slide_from_bottom",
         }}
       >

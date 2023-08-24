@@ -13,13 +13,16 @@ export const globals = StyleSheet.create({
     fontWeight: "bold",
     color: "#222",
     marginBottom: 16,
+    fontFamily: "productsansbold",
   },
   heading2: {
     fontSize: 20,
     fontWeight: "600",
+    fontFamily: "productsansbold",
   },
   text: {
     fontSize: 16,
+    fontFamily: "productsansregular",
     color: "#444",
     lineHeight: 30,
   },
