@@ -46,7 +46,6 @@ export default function Foods({ navigation }) {
       const data = await res.json();
       setResults(data.meals);
       setIsLoaded(false);
-      setSearchText("");
     } catch (error) {
       Alert.alert(
         "Something went wrong",
@@ -138,6 +137,7 @@ const styles = StyleSheet.create({
   },
   cards: {
     marginBottom: 32,
+    gap: 32,
   },
   input: {
     fontSize: 16,
