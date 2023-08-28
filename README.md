@@ -9,7 +9,7 @@
 
 ## Routing
 
-Routing is done using `react-navigation/native` and `react-navigation/native-stack`. Check out [React Navigation](https://reactnavigation.org/docs/installation) for more information.
+Routing is done using `react-navigation/native` and `react-navigation/native-stack`. Check out [React Navigation](https://reactnavigation.org/docs/getting-started) for more information.
 
 ## Icons
 
