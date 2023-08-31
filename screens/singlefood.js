@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Image,
   SafeAreaView,
+  Alert,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { globals } from "../styles/globals";
@@ -16,6 +17,9 @@ export default function SingleFood({ route, navigation }) {
   const [foods, setFoods] = useState([]);
   const [isLoaded, setIsLoaded] = useState(true);
   const [liked, setLiked] = useState(false);
+  const [favorites, setFavorites] = useState([]);
+
+  const params = route.params;
 
   async function fetchMealName() {
     try {
@@ -35,8 +39,15 @@ export default function SingleFood({ route, navigation }) {
     fetchMealName();
   }, []);
 
-  function handleLikedFood() {
+  function handleAddToFavorites(params) {
     setLiked(!liked);
+
+    const newFavorites = {
+      id: route.params.idMeal,
+      name: route.params.strMeal,
+      image: route.params.strMealThumb,
+    };
+    setFavorites([newFavorites, ...favorites]);
   }
 
   return (
@@ -49,12 +60,23 @@ export default function SingleFood({ route, navigation }) {
             <View style={styles.header}>
               <Text style={styles.heading}>{route.params.strMeal}</Text>
 
-              <TouchableOpacity onPress={handleLikedFood}>
+              <TouchableOpacity onPress={() => handleAddToFavorites(params)}>
                 {liked ? (
                   <AntDesign name="heart" size={24} color="#f43f5e" />
                 ) : (
                   <Feather name="heart" size={24} color="#222222" />
                 )}
+              </TouchableOpacity>
+            </View>
+
+            <View>
+              <TouchableOpacity
+                onPress={() => navigation.navigate("Favorites", favorites)}
+              >
+                <View style={styles.flex}>
+                  <AntDesign name="heart" size={24} color="#222" />
+                  <Text>View Favorites</Text>
+                </View>
               </TouchableOpacity>
             </View>
 
@@ -261,5 +283,10 @@ const styles = StyleSheet.create({
     width: "100%",
     borderRadius: 32,
     textAlign: "center",
+  },
+  flex: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
   },
 });
