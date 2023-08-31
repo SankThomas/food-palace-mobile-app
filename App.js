@@ -4,13 +4,14 @@ import { NavigationContainer } from "@react-navigation/native";
 import Foods from "./screens/foods";
 import Food from "./screens/food";
 import Singlefood from "./screens/singlefood";
+import Favorites from "./screens/favorites";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
 import { useEffect } from "react";
 
 const Stack = createNativeStackNavigator();
 
-export default function App() {
+export default function App({ navigation }) {
   const [fontsLoaded] = useFonts({
     productsansregular: require("./assets/fonts/product-sans-regular.ttf"),
     productsansbold: require("./assets/fonts/product-sans-bold.ttf"),
@@ -67,6 +68,13 @@ export default function App() {
           component={Singlefood}
           options={{
             headerTitle: "How To Prepare",
+          }}
+        />
+        <Stack.Screen
+          name="Favorites"
+          component={Favorites}
+          options={{
+            headerTitle: "Favorites",
           }}
         />
       </Stack.Navigator>
