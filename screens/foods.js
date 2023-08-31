@@ -41,7 +41,7 @@ export default function Foods({ navigation }) {
     try {
       setIsLoaded(true);
       const res = await fetch(
-        `https://www.themealdb.com/api/json/v1/1/filter.php?c=${searchText}`
+        `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`
       );
       const data = await res.json();
       setResults(data.meals);
