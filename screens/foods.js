@@ -73,7 +73,7 @@ export default function Foods({ navigation }) {
             <Text style={globals.heading}>Browse or Search for a Meal</Text>
 
             <TextInput
-              placeholder="Search for a food category e.g. chicken"
+              placeholder="Search for a food..."
               onChangeText={(text) => setSearchText(text.toLowerCase())}
               onSubmitEditing={handleSearch}
               style={styles.input}
@@ -81,6 +81,9 @@ export default function Foods({ navigation }) {
 
             {results ? (
               <>
+                <Text style={globals.heading}>
+                  Showing {results.length} results
+                </Text>
                 <View style={styles.cards}>
                   {results.map((result) => (
                     <TouchableOpacity
